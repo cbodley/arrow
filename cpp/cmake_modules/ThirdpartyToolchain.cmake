@@ -1979,7 +1979,9 @@ macro(build_xsimd)
                       PREFIX "${CMAKE_BINARY_DIR}"
                       URL ${XSIMD_SOURCE_URL}
                       URL_HASH "SHA256=${ARROW_XSIMD_BUILD_SHA256_CHECKSUM}"
-                      CMAKE_ARGS ${XSIMD_CMAKE_ARGS})
+                      CMAKE_ARGS ${XSIMD_CMAKE_ARGS}
+                      TEST_BEFORE_INSTALL OFF
+                      TEST_COMMAND find ${XSIMD_PREFIX}) # list installed files
 
   set(XSIMD_INCLUDE_DIR "${XSIMD_PREFIX}/include")
 
